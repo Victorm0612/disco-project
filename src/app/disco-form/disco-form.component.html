@@ -1,0 +1,74 @@
+<h1>Nuevo rumbeadero</h1>
+<div class="form__card">
+  <form [formGroup]="discoForm" (ngSubmit)="onSubmit()">
+    <label class="form__label" for="input-name">Nombre del lugar</label>
+    <input
+      class="form__input"
+      id="input-name"
+      formControlName="discoName"
+      type="text"
+      placeholder="Ingrese el nombre del lugar..."
+    />
+    <span *ngIf="isValid('discoName')" class="input__error"
+      >Ingrese un nombre válido!</span
+    >
+    <label class="form__label" for="input-description">Descripción</label>
+    <input
+      class="form__input"
+      id="input-description"
+      formControlName="description"
+      type="text"
+      placeholder="Descripción del sitio..."
+    />
+    <span *ngIf="isValid('description')" class="input__error"
+      >Ingrese una descripción más completa!</span
+    >
+    <label class="form__label" for="input-image">Url imagen</label>
+    <input
+      class="form__input"
+      id="input-image"
+      formControlName="image"
+      type="text"
+      placeholder="Descripción del sitio..."
+    />
+    <span *ngIf="isValid('image')" class="input__error"
+      >Ingrese una url válida!</span
+    >
+    <label class="form__label" for="input-email">Email de contacto</label>
+    <input
+      class="form__input"
+      id="input-email"
+      formControlName="email"
+      type="text"
+      placeholder="Correo electrónico"
+    />
+    <span *ngIf="isValid('email')" class="input__error"
+      >Ingrese un email válido!</span
+    >
+    <label class="form__label" for="input-price">Precio</label>
+    <input
+      class="form__input"
+      id="input-price"
+      formControlName="price"
+      type="text"
+      placeholder="Precio cover..."
+    />
+    <span *ngIf="isValid('price')" class="input__error"
+      >El precio ingresado es inválido!</span
+    >
+    <label class="form__label" for="input-price__range">Costo promedio</label>
+    <select
+      class="form__input"
+      formControlName="rangePrice"
+      id="input-price__range"
+    >
+      <option value="barato">$</option>
+      <option value="medio">$$</option>
+      <option value="caro">$$$</option>
+    </select>
+    <span *ngIf="isValid('rangePrice')" class="input__error"
+      >Seleccione una opción válida!</span
+    >
+    <button [disabled]="!discoForm.valid" class="form__button">Crear</button>
+  </form>
+</div>

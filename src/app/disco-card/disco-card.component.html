@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card__header">
+    <h3>{{ disco.name }}</h3>
+    <img [src]="disco.url" alt="disco Item" />
+  </div>
+  <div class="card__text">
+    <p>{{ disco.description }}</p>
+    <ul class="card-list___properties">
+      <li><b>Precio de entrada:</b> ${{ disco.price }}</li>
+      <li><b>Costo promedio:</b> {{ priceRange[disco.range] }}</li>
+      <li><b>Email:</b> {{ disco.email }}</li>
+    </ul>
+    <button class="card__button" (click)="deleteDisco()">Eliminar</button>
+  </div>
+</div>

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Oswold", sans-serif;
+  margin: 0;
+  background-image: linear-gradient(
+    to right top,
+    #5b092a,
+    #6d0027,
+    #7e0020,
+    #8d0014,
+    #990000
+  );
+}
