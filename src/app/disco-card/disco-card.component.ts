@@ -19,6 +19,7 @@ export class DiscoCardComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteDisco() {
-    this.discoService.deleteItem(this.disco.name);
+    const newList = this.discoService.deleteItem(this.disco.name);
+    this.discoService.discoEmitter.next(newList);
   }
 }

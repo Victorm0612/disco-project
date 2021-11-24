@@ -21,7 +21,7 @@
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
     z-index: 1;
-    left: 180%;
+    left: 200%;
     top: 0;
     width: 100%;
     height: 100%;
@@ -32,10 +32,11 @@
   &:hover {
     &:before {
       transition-delay: 0.4s;
-      left: -180%;
+      left: -200%;
     }
   }
 }
+
 .card__header {
   h3 {
     text-align: center;

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Disco } from './disco.model';
 
 @Injectable({
@@ -16,6 +17,8 @@ export class discoService {
     },
   ];
 
+  discoEmitter: Subject<Disco[]> = new Subject<Disco[]>();
+
   getAllDiscos() {
     return this.discoList.slice();
   }
@@ -27,9 +30,13 @@ export class discoService {
 
   deleteItem(name: string) {
     const index = this.discoList.findIndex((disco) => disco.name === name);
-    if (index === -1) return;
+    if (index === -1) return this.discoList;
     this.discoList = this.discoList.filter((disco) => disco.name !== name);
-    localStorage.setItem('discos', JSON.stringify(this.discoList));
-    return;
+    if (this.discoList.length === 0) {
+      localStorage.removeItem('discos');
+    } else {
+      localStorage.setItem('discos', JSON.stringify(this.discoList));
+    }
+    return this.discoList;
   }
 }
